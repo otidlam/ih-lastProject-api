@@ -1,5 +1,3 @@
-import { String, Number } from "core-js/library/web/timers";
-
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -25,7 +23,7 @@ const entrySchema = new Schema({
         type: Date,
         default: Date.now
     },
-    assistants: [],
+    assistants: [{ type: Schema.Types.ObjectId, ref: 'User' }],
     maxAssisntants: {
         type: Number,
         required: [true, "Must choose the maxium assisntants"]
